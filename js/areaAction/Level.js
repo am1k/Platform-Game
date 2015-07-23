@@ -7,6 +7,8 @@ define(function (require) {
         actorChars = require('../actors/actorChars');
 
     function Level(plan) {
+        if (Object.prototype.toString.call(plan).toUpperCase() !== '[OBJECT ARRAY]')
+            throw new Error('Argument is not array');
         this.width = plan[0].length;
         this.height = plan.length;
         this.grid = [];
@@ -39,6 +41,8 @@ define(function (require) {
     };
 
     Level.prototype.obstacleAt = function(pos, size) {
+        if (!(pos instanceof Vector) || !(size instanceof Vector))
+            throw 'Argument is not object of Vector';
         var xStart = Math.floor(pos.x);
         var xEnd = Math.ceil(pos.x + size.x);
         var yStart = Math.floor(pos.y);

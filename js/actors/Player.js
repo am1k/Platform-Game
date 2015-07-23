@@ -4,8 +4,13 @@
 
 define(function(require) {
     var Vector = require('../areaAction/Vector');
+    var playerXSpeed = 7;
+    var gravity = 30;
+    var jumpSpeed = 17;
 
     function Player(pos) {
+        if (!(pos instanceof Vector))
+            throw new Error('Argument is not object of Vector');
         this.pos = pos.plus(new Vector(0, -0.5));
         this.size = new Vector(0.8, 1.5);
         this.speed = new Vector(0, 0);
@@ -13,9 +18,13 @@ define(function(require) {
 
     Player.prototype.type = "player";
 
-    var playerXSpeed = 7;
-
     Player.prototype.moveX = function (step, level, keys) {
+        if (
+            typeof(step) !== 'number' ||
+            level.constructor.name !== 'Level' ||
+            Object.prototype.toString.call(keys).toUpperCase() !== '[OBJECT OBJECT]'
+        )
+            throw 'Error of type arguments in Player.moveX';
         this.speed.x = 0;
         if (keys.left) this.speed.x -= playerXSpeed;
         if (keys.right) this.speed.x += playerXSpeed;
@@ -29,10 +38,13 @@ define(function(require) {
             this.pos = newPos;
     };
 
-    var gravity = 30;
-    var jumpSpeed = 17;
-
     Player.prototype.moveY = function (step, level, keys) {
+        if (
+            typeof(step) !== 'number' ||
+            level.constructor.name !== 'Level' ||
+            Object.prototype.toString.call(keys).toUpperCase() !== '[OBJECT OBJECT]'
+        )
+            throw 'Error of type arguments in Player.moveX';
         this.speed.y += step * gravity;
         var motion = new Vector(0, this.speed.y * step);
         var newPos = this.pos.plus(motion);
@@ -49,6 +61,12 @@ define(function(require) {
     };
 
     Player.prototype.act = function (step, level, keys) {
+        if (
+            typeof(step) !== 'number' ||
+            level.constructor.name !== 'Level' ||
+            Object.prototype.toString.call(keys).toUpperCase() !== '[OBJECT OBJECT]'
+        )
+            throw 'Error of type arguments in Player.moveX';
         this.moveX(step, level, keys);
         this.moveY(step, level, keys);
 
