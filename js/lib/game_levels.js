@@ -137,6 +137,5 @@ define(function () {
    "                                                  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
    "                                                                                                              "]
  ];
-
  return GAME_LEVELS;
 });

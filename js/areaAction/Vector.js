@@ -5,7 +5,12 @@
 define(function () {
 
         function Vector(x, y) {
-            this.x = x; this.y = y;
+            if (x != null || y != null || x != undefined || y != undefined) {
+                this.x = x;
+                this.y = y;
+            } else {
+                throw new Error('');
+            }
         }
 
         Vector.prototype.plus = function(other) {
