@@ -18,6 +18,7 @@
   "license": "MIT",
   "devDependencies": {
     "expect.js": "^0.3.1",
-    "mocha": "^2.2.5"
+    "mocha": "^2.2.5",
+    "amd-loader": "^0.0.5"
   }
 }

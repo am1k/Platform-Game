@@ -4,6 +4,7 @@
 
 define(function(require) {
     var element = require('./elt');
+    var scale = 20;
 
     function DOMDisplay(parent, level) {
         this.wrap = parent.appendChild(element("div", "game"));
@@ -13,8 +14,6 @@ define(function(require) {
         this.actorLayer = null;
         this.drawFrame();
     }
-
-    var scale = 20;
 
     DOMDisplay.prototype.drawBackground = function () {
         var table = element("table", "background");
@@ -55,7 +54,6 @@ define(function(require) {
         var height = this.wrap.clientHeight;
         var margin = width / 3;
 
-        // The viewport
         var left = this.wrap.scrollLeft, right = left + width;
         var top = this.wrap.scrollTop, bottom = top + height;
 

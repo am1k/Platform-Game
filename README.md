@@ -25,6 +25,5 @@ For game you could use:
 ## Run test
 
 1. npm install
-2. npm install amd-loader
-3. Run Tests in console
+2. Run Tests in console
    npm test

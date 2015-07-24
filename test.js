@@ -11,6 +11,7 @@ var GAME_LEVELS = require('./js/lib/game_levels'),
     Vector = require('./js/areaAction/Vector'),
     actorChars = require('./js/actors/actorChars'),
     Player = require('./js/actors/Player'),
+    DOMDisplay = require('./js/display/DOMDisplay'),
     Level = require('./js/areaAction/Level');
 
 describe('Tests', function() {
@@ -447,6 +448,7 @@ describe('Tests', function() {
     });
     describe('#Level', function() {
         var testLevel = new Level(['']);
+        var pos = new Vector(3, 4);
 
         it('Check create new object "Level"', function () {
             expect(new Level([''])).to.be.ok;
@@ -495,7 +497,43 @@ describe('Tests', function() {
             }).to.throwException();
         });
 
-
+        it('In method "obstacleAt" should be "Vector" as arguments', function () {
+            expect(testLevel.obstacleAt(pos, pos)).to.be.ok;
+        });
+        it('In method "obstacleAt" should be "Vector" as arguments', function () {
+            expect(function(){
+                testLevel.obstacleAt(pos, null)
+            }).to.throwError();
+        });
+        it('In method "obstacleAt" should be "Vector" as arguments', function () {
+            expect(function(){
+                testLevel.obstacleAt(undefined, pos)
+            }).to.throwError();
+        });
     });
+
+    describe('#DOMDisplay', function() {
+        it('Should throw an Error if input parameters is not correct', function() {
+            expect(function () {
+                new DOMDisplay(document.body, new Level(1))
+            }).to.throwError();
+        });
+        it('Should throw an Error if input parameters is string', function() {
+            expect(function () {
+                new DOMDisplay(document.body, new Level('string'))
+            }).to.throwError();
+        });
+        it('Should throw an Error if input parameters is null', function() {
+            expect(function () {
+                new DOMDisplay(document.body, new Level(null))
+            }).to.throwError();
+        });
+        it('Should throw an Error if input parameters is undefined', function() {
+            expect(function () {
+                new DOMDisplay(document.body, new Level(undefined))
+            }).to.throwError();
+        });
+    });
+
 
 });
