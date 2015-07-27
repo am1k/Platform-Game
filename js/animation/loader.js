@@ -5,8 +5,8 @@
 define(function(require){
     var runGame = require('./runGame'),
         GAME_LEVELS = require('../lib/game_levels'),
-        DOMDisplay = require('../display/DOMDisplay');
+        CanvasDisplay = require('../display/CanvasDisplay');
 
-    return runGame(GAME_LEVELS, DOMDisplay);
+    runGame(GAME_LEVELS, CanvasDisplay);
 
 });
