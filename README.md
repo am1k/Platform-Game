@@ -6,7 +6,7 @@ More about this game you could find at this link <a href="http://eloquentjavascr
 
 ## Levels
 
-<img src="http://prntscr.com/7xvwns">
+<img src="http://i.imgur.com/cRHZnc5.png">
 
 At this screen you can see different actors:
 1. Coin
