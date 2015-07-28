@@ -2,11 +2,11 @@
 
 Platform games (or “jump and run” games) are games that expect the player to move a figure through a world, which is often
 two-dimensional and viewed from the side, and do lots of jumping onto and over things.
-More about this game you could find at this link <a href="http://prntscr.com/7xvwns">game</a>
+More about this game you could find at this link <a href="http://eloquentjavascript.net/15_game.html">game</a>
 
 ## Levels
 
-<img src="http://eloquentjavascript.net/img/darkblue.png">
+<img src="http://prntscr.com/7xvwns">
 
 At this screen you can see different actors:
 1. Coin
